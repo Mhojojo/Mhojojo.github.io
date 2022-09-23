@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type ="image/x-icon" href="images/logo.png"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="icon" type="images/logo.png" href="/images/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+    <title>Dashboard</title>
+    <style>
+        @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #3d3d3d;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #3d3d3d;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #000000;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color:white;
+    background:forestgreen;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background:orange;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: #000000;
+}
+
+a.article,
+a.article:hover {
+    background:forestgreen !important;
+    color: #fff !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+/* --------calendar---------------- */
+.clearfix::after,
+.calendar ol::after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* ================
+Calendar Styling */
+.calendar {
+  border-radius: 10px;
+}
+
+.month {
+  font-size: 2rem;
+}
+
+@media (min-width: 992px) {
+  .month {
+    font-size: 3.5rem;
+  }
+}
+
+.calendar ol li {
+  float: left;
+  width: 14.28571%;
+}
+
+.calendar .day-names {
+  border-bottom: 1px solid #eee;
+}
+
+.calendar .day-names li {
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.calendar .days li {
+  border-bottom: 1px solid #eee;
+  min-height: 8rem;
+}
+
+.calendar .days li .date {
+  margin: 0.5rem 0;
+}
+
+.calendar .days li .event {
+  font-size: 0.75rem;
+  padding: 0.4rem;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-radius: 4rem;
+  margin-bottom: 1px;
+}
+
+.calendar .days li .event.span-2 {
+  width: 200%;
+}
+
+.calendar .days li .event.begin {
+  border-radius: 1rem 0 0 1rem;
+}
+
+.calendar .days li .event.end {
+  border-radius: 0 1rem 1rem 0;
+}
+
+.calendar .days li .event.clear {
+  background: none;
+}
+
+.calendar .days li:nth-child(n+29) {
+  border-bottom: none;
+}
+
+.calendar .days li.outside .date {
+  color: #ddd;
+}
+    </style>
+   <body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <img 
+          class="img-responsive"
+          src="images/avatar.png"
+        style="max-width:60px;max-height:60px; position:relative;"> Hi, John
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>My Dashboard</p>
+                <li>
+                    <a href="#">My Sets</a>
+                    
+                </li>
+                <li class="active">
+                    <a href="#">Calendar</a>
+                </li>
+                <li>
+                    <a href="#">Calory Calculator</a>
+                </li>
+                <li>
+                    <a href="#">Settings</a>
+                </li>
+                <li>
+                    <a href="#">Logout</a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="index.html" class="download">Back to Homepage</a>
+                </li>
+              
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info" style="background-color:#3d3d3d; color:white">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+        
+                    <img class="img-responsive" class="float-right" src="images/dash logo.png"
+             style="max-width:100px;
+                    max-height:100px;">
+        </a>
+            </nav>
+
+            <body>
+
+                <div class="container">
+
+                
+                  
+                    <!-- Calendar -->
+                    <div class="calendar shadow bg-white p-4">
+                      <div class="d-flex align-items-center"><i class="fa fa-calendar fa-3x mr-3"></i>
+                        <h2 class="month font-weight-bold mb-0 text-uppercase">September 2022</h2>
+                      </div>
+                      <p class="font-italic text-muted mb-5"> Suggested activity today: Complete 2 sets </p>
+                      <ol class="day-names list-unstyled">
+                        <li class="font-weight-bold text-uppercase">Sun</li>
+                        <li class="font-weight-bold text-uppercase">Mon</li>
+                        <li class="font-weight-bold text-uppercase">Tue</li>
+                        <li class="font-weight-bold text-uppercase">Wed</li>
+                        <li class="font-weight-bold text-uppercase">Thu</li>
+                        <li class="font-weight-bold text-uppercase">Fri</li>
+                        <li class="font-weight-bold text-uppercase">Sat</li>
+                      </ol>
+                  
+                      <ol class="days list-unstyled">
+                        <li>
+                          <div class="date">1</div>
+                          <div class="event bg-success">Completed set</div>
+                        </li>
+                        <li>
+                          <div class="date">2</div>
+                        </li>
+                        <li>
+                          <div class="date">3</div>
+                          <div class="event bg-success">Completed set</div>
+                        </li>
+                        </li>
+                        <li>
+                          <div class="date">4</div>
+                        </li>
+                        <li>
+                          <div class="date">5</div>
+                          <div class="event bg-success">Completed set</div>
+                        </li>
+                        </li>
+                        <li>
+                          <div class="date">6</div>
+                        </li>
+                        <li>
+                          <div class="date">7</div>
+                        </li>
+                        <li>
+                          <div class="date">8</div>
+                        </li>
+                        <li>
+                          <div class="date">9</div>
+                        </li>
+                        <li>
+                          <div class="date">10</div>
+                        </li>
+                        <li>
+                          <div class="date">11</div>
+                        </li>
+                        <li>
+                          <div class="date">12</div>
+                        </li>
+                        <li>
+                          <div class="date">13</div>
+                          <div class="event all-day begin span-2 bg-warning">Yoga</div>
+                        </li>
+                        <li>
+                          <div class="date">14</div>
+                        </li>
+                        <li>
+                          <div class="date">15</div>
+                          <div class="event all-day end bg-success">Completed Set</div>
+                        </li>
+                        <li>
+                          <div class="date">16</div>
+                        </li>
+                        <li>
+                          <div class="date">17</div>
+                        </li>
+                        <li>
+                          <div class="date">18</div>
+                        </li>
+                        <li>
+                          <div class="date">19</div>
+                        </li>
+                        <li>
+                          <div class="date">20</div>
+                        </li>
+                        <li>
+                          <div class="date">21</div>
+                          <div class="event bg-primary">Changed to expert Set</div>
+                          <div class="event bg-success">Completed Set</div>
+                        </li>
+                        <li>
+                          <div class="date">22</div>
+                          <div class="event bg-success">Completed</div>
+                        </li>
+                        <li>
+                          <div class="date">23</div>
+                        </li>
+                        <li>
+                          <div class="date">24</div>
+                        </li>
+                        <li>
+                          <div class="date">25</div>
+                        </li>
+                        <li>
+                          <div class="date">26</div>
+                        </li>
+                        <li>
+                          <div class="date">27</div>
+                        </li>
+                        <li>
+                          <div class="date">28</div>
+                        </li>
+                        <li>
+                          <div class="date">29</div>
+                        </li>
+                        <li>
+                          <div class="date">30</div>
+                        </li>
+                        <li>
+                          <div class="date">31</div>
+                        </li>
+                        <li class="outside">
+                          <div class="date">1</div>
+                        </li>
+                        <li class="outside">
+                          <div class="date">2</div>
+                        </li>
+                        <li class="outside">
+                          <div class="date">3</div>
+                        </li>
+                        <li class="outside">
+                          <div class="date">4</div>
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+            </body>
+<script>
+    $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+</script>
+</html>

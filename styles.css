@@ -110,7 +110,7 @@ width: 80%;
 }
 
 [id*="open-accordion"],[id*="close-accordion"] {
-background:rgb(79, 161, 255);
+background:rgb(199, 199, 199);
 border-bottom: 5px solid #fff;
 line-height: 40px;
 height: 40px;
@@ -126,10 +126,10 @@ background:orange;
 }
 
 .accordion a:hover{
-  color:white
+  color:black
 }
 .accordion a {
-color:white;
+color:black;
 font-size: 1.25em;
 font-weight: normal;
 padding-left: 2%;
@@ -141,7 +141,7 @@ text-shadow: none;
 content: "";
 border-left: 10px solid transparent;
 border-right: 10px solid transparent;
-border-top: 10px solid rgba(255, 255, 255, 0.6);
+border-top: 10px solid rgba(131, 131, 131, 0.6);
 position: absolute;
 right: 5px;
 top: 15px;
@@ -180,6 +180,7 @@ padding-top: 10px;
 
 .accordion span:target ~ [id*="close-accordion"] {
 display: block;
+color:white
 }
 
 .accordion span:target ~ [id*="open-accordion"] {
