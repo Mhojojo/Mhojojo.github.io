@@ -272,38 +272,38 @@ Calendar Styling */
         style="max-width:60px;max-height:60px; position:relative;"> Hi, John
             </div>
 
-            <ul class="list-unstyled components">
+            <ul class="list-unstyled components sticky-top">
                 <p>My Dashboard</p>
                 <li>
-                    <a href="#">My Sets</a>
+                    <a href="#programs">My Sets</a>
                     
                 </li>
-                <li class="active">
-                    <a href="#">Calendar</a>
+                <li>
+                    <a href="#calendar">Calendar</a>
                 </li>
                 <li>
-                    <a href="#">Calorie Calculator</a>
+                    <a href="#calorie">Calorie Check</a>
                 </li>
                 <li>
                     <a href="#">Settings</a>
                 </li>
                 <li>
-                    <a href="#">Logout</a>
+                    <a href="index.html">Homepage</a>
                 </li>
+                <li>
+                  <a href="#">Logout</a>
+              </li>
             </ul>
 
-            <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="index.html" class="download">Back to Homepage</a>
-                </li>
+           
               
         </nav>
 
         <!-- Page Content  -->
-        <div id="content">
+        <div id="content sticky-top">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+                <div class="container-fluid sticky-top">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-info" style="background-color:#3d3d3d; color:white">
                         <i class="fas fa-align-left"></i>
@@ -317,8 +317,54 @@ Calendar Styling */
             </nav>
 
             <body>
-
-                <div class="container">
+              <div id="programs">
+                <div class="container pt-">
+                     <div>
+                        <h3>Saved sets</h3>
+                      </div>
+                  <div class="row row-cols-1 row-cols-md-3 g-3 pt-3 pb-5">
+                      <div class="col">
+                        <div class="card h-100">
+                          <video src="video/video2.mp4" controls ></video>
+                          <div class="card-body">
+                            <h5 class="card-title">Strength</h5>
+                            <p class="card-text">Strength training or resistance training involves the performance of physical exercises that are designed to improve strength and endurance.</p>
+                          </div>
+                          <div class="card-footer">
+                            <small><a href="Programs.html">Find out more</a></small>
+                          </div>
+                        </div>
+                      </div>
+                
+                    <div class="col">
+                      <div class="card h-100">
+                          <video src="video/video2.mp4" controls ></video>
+                          <div class="card-body">
+                            <h5 class="card-title">Endurance</h5>
+                            <p class="card-text">Endurance exercise is an activity that increases your heart rate and breath for an extended period. To endure is to remain persistent in any challenges.</p>
+                          </div>
+                          <div class="card-footer">
+                            <small><a href="Programs.html">Find out more</a></small>
+                          </div>
+                      </div>
+                    </div>
+                
+                    <div class="col">
+                        <div class="card h-100">
+                            <video src="video/video3.mp4" controls ></video>
+                          <div class="card-body">
+                            <h5 class="card-title">Balance</h5>
+                            <p class="card-text">Balance training involves doing exercises that strengthen the muscles that help keep you upright, including your legs and core. These kinds of exercises can improve stability.</p>
+                          </div>
+                        <div class="card-footer">
+                        <small><a href="Programs.html   ">Find out more</a></small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="container -fluid" id="calendar">
 
                 
                   
@@ -456,12 +502,32 @@ Calendar Styling */
                         </li>
                       </ol>
                     </div>
+                  </div>
 
+                  <!-- -------------------------end of calendar---------------------- -->
 
-
+                  <div class="container pt-5" id="calorie">
+                    <div class="row">
+                      <h4>Checked burned calories</h4>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <p>Current Body Weight: 60kls</p>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-3">
+                          <p>Sets completed today:<br>
+                          Beginner: Cardio<br>
+                           Beginner: Balance</p>
+                           </div>
+                        <div class="col-lg-5">
+                          <h3>Estimated Calories Burned:<br><span style="color:orange">300 Cal</span> </h3>
+                          </div>
+                        </div>
                     
                   </div>
             </body>
+            
 <script>
     $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
